@@ -19,3 +19,28 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
 })
 
 
+function Tabs() {
+
+    // new elements
+
+    const topic = document.createElement('div');
+
+
+
+    // class names
+
+    topic.classList.add('tab');
+
+
+    // text content
+
+    topic.textContent = 'topic here';
+
+    return topic;
+
+
+
+
+}
+
+
