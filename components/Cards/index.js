@@ -18,33 +18,31 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-const topics = [
-  "javascript",
-  "bootstrap",
-  "jquery",
-  "node",
-  "technology"
-]
 
-topics.forEach(topic =>
-  axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
+  axios.get('https://lambda-times-backend.herokuapp.com/articles')
         .then(res =>  {
-          console.log(res.data.topic)
-          const tabs = document.querySelector('.topics')
-          const cards = cardCreator(res.data)
-          tabs.appendChild(cards)
+          console.log(res.data.articles)
+          const cardHome = document.querySelector('.title')
+          const javascript = cardCreator(res.data.articles.javascript)
+          const bootstrap = cardCreator(res.data.articles.bootstrap)
+          const node = cardCreator(res.data.articles.node)
+          const tech = cardCreator(res.data.articles.technology)
+          const jquery = cardCreator(res.data.articles.jquery)
+          cardHome.append(javascript, bootstrap, node, tech, jquery)
         })
-)
-
+        .catch(err => console.log(err))
 
 
 function cardCreator(article){
   const card = document.createElement('div');
   card.classList.add('card');
 
-  const headline = document.createElement('div');
-  headline.classList.add('headline');
-  headline.textContent = article.headline
+  article.forEach(item => {
+    const header = document.createElement('h3')
+    header.classList.add('headline')
+    header.textContent = item.headline
+    card.appendChild(header)
+  })
 
   const author = document.createElement('div');
   author.classList.add('author');
@@ -52,17 +50,22 @@ function cardCreator(article){
   const imgContainer = document.createElement('div');
   imgContainer.classList.add('img-container');
 
-  const image = document.createElement('img');
-  image.setAttribute('src', article.authorPhoto);
+  article.forEach(item => {
+      const authorImage = document.createElement('img')
+      authorImage.setAttribute('src', item.authorPhoto)
+      imgContainer.appendChild(authorImage)
+  });
 
-  const credit = document.createElement('span');
-  credit.textContent = `By: ${article.authorName}`
+  article.forEach(item => {
+    const credit = document.createElement('span');
+    credit.textContent = `By: ${item.authorName}`
+      author.appendChild(credit);
+  });
 
-  card.appendChild(headline);
+
   card.appendChild(author);
   author.appendChild(imgContainer);
-  imgContainer.appendChild(image);
-  author.appendChild(credit);
+
 
   return card
 }
