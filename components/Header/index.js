@@ -11,6 +11,10 @@
 
 const thisHeader = document.querySelector('.header-container');
 
+console.log(thisHeader);
+
+thisHeader.appendChild(Header());
+
 function Header() {
 
     // new elements
@@ -41,3 +45,5 @@ function Header() {
     return header;
 
 }
+
+
