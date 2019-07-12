@@ -12,11 +12,16 @@
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
 
 .then(function (response) {
-  console.log(response);
+    const topicsClass = document.querySelector('.topics');
+    return response.data.topicsClass.map(topic => {
+        return topicsClass
+    });
+
+  
 })
 .catch(function (error){
-  console.log(error)
-})
+  console.log('something went wrong', error);
+});
 
 
 function Tabs() {
