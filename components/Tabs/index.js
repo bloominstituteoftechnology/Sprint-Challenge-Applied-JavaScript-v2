@@ -8,6 +8,13 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
+
+
+
+
+
+
+
 ///container
 // tabs = document.querySelector(".topics");/// made container for topics. If you put ".tabs" for some reason it scrunches up the tab names
 ///^^^ not necessary if you reformat axios
@@ -29,7 +36,7 @@ axios
 
   .catch(error => {
     ///failure
-    console.log("NO GUUD", error);
+    console.log("NO GUUD", error);/// error message that comes up if failure occurs: 'NO GUUD
   });
 
 function createTabs(techTopics) {

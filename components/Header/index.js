@@ -9,12 +9,12 @@
 //  </div >
 // And add it to the DOM in the .headerContainer component
 
-const headerContainer = document.querySelector(".header-container");///made container to hold header elements
-headerContainer.appendChild(createHeader());///appended the function created below to the headerContainer
+const headerContainer = document.querySelector(".header-container"); ///made container to hold header elements
+headerContainer.appendChild(createHeader()); ///appended the function created below to the headerContainer
 /// without these ^^ no header can be present
 
-
-function createHeader() {//// to be used later on if needed
+function createHeader() {
+  //// to be used later on if needed
   // create elements
   const headerContainer = document.createElement("div");
   const header = document.createElement("div");
@@ -39,5 +39,5 @@ function createHeader() {//// to be used later on if needed
   header.appendChild(title);
   header.appendChild(temp);
 
-  return headerContainer;/// returned first created element
+  return headerContainer; /// returned first created element
 }
