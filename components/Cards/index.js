@@ -18,22 +18,28 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+// Select main node
+const cardsContainer = document.querySelector('.cards-container');
+
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
   .then(data => {
     // test response
     console.log('response', data);
 
     // hold received data
-    const articleData = data.data;
+  const articleData = data.data.articles; // data is stored in an object
 
-    // create tab and append data
-    const cards = document.querySelector('.cards');
-    const card = createCard(articleData);
-    cards.appendChild(card);
-
-  })
-
-
+    //create an array to hold object data
+    const articleArray = Object.values(articleData);
+      //nest forEach to assign object values from data
+    articleArray.forEach(articleData => {
+        // create new article
+        articleData.forEach(element => {
+          let newArticle = createCard(element);
+          cardsContainer.appendChild(newArticle);
+        })
+    })
+})
 
   .catch(error => {
     // test response
