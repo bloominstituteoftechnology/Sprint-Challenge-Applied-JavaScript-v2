@@ -20,7 +20,9 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
   const info = data.data; 
   console.log(`Here's the info`);
   console.log(info);
-
+  //get: {"topics": ["javascript", "bootstrap", "technology", "jquery", "node.js"]}
+  //BUT need to acess data from the array, maybe use variables?
+  console.log(info.value);
 
 //  const cardInfo = createCards(info)
 //  cardsHtml.appendChild(cardInfo)
