@@ -9,10 +9,12 @@
 //  </div >
 // And add it to the DOM in the .headerContainer component
 
-const headerContainer = document.querySelector(".header-container");
-headerContainer.appendChild(createHeader());
+const headerContainer = document.querySelector(".header-container");///made container to hold header elements
+headerContainer.appendChild(createHeader());///appended the function created below to the headerContainer
+/// without these ^^ no header can be present
 
-function createHeader() {
+
+function createHeader() {//// to be used later on if needed
   // create elements
   const headerContainer = document.createElement("div");
   const header = document.createElement("div");
@@ -20,7 +22,7 @@ function createHeader() {
   const title = document.createElement("h1");
   const temp = document.createElement("span");
 
-  // set styles
+  // set styles/// established class names
   headerContainer.classList.add("header-Container");
   header.classList.add("header");
   date.classList.add("date");
@@ -37,5 +39,5 @@ function createHeader() {
   header.appendChild(title);
   header.appendChild(temp);
 
-  return header;
+  return headerContainer;/// returned first created element
 }
