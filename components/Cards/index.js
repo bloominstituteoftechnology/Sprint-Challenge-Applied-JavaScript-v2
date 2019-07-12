@@ -20,20 +20,83 @@
 
 cardContainer = document.querySelector(".cards-container");
 
-const promise = axios.get('https://lambda-times-backend.herokuapp.com/articles');
+///another way  to make it work that makes more sense
 
-promise
+//////node
+axios
+  .get('https://lambda-times-backend.herokuapp.com/articles')
   .then(data => {
-    console.log("OH HAI", data);
-    const articleCards = data.data.articles;
-    for (const something in articleCards) {
-      const articles = articleCards[something];
-      articles.forEach(articleType => {
-        const card = createCards(articleType);
-        cardContainer.append(card);
-      });
-    }
+    console.log("OH HAI", data.data.articles);
+    const articlesArray = data.data.articles.node ;
+    cardsContainer = document.querySelector(".cards-container");
+    articlesArray.forEach((article) => {
+        const newArticle = createCards(article);
+        cardsContainer.appendChild(newArticle);
+    });
   })
+
+
+////jquery
+axios
+  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(data => {
+    console.log("OH HAI", data.data.articles);
+    const articlesArray = data.data.articles.jquery ;
+    cardsContainer = document.querySelector(".cards-container");
+    articlesArray.forEach((article) => {
+        const newArticle = createCards(article);
+        cardsContainer.appendChild(newArticle);
+    });
+  })
+
+
+////technology
+axios
+  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(data => {
+    console.log("OH HAI", data.data.articles);
+    const articlesArray = data.data.articles.technology ;
+    cardsContainer = document.querySelector(".cards-container");
+    articlesArray.forEach((article) => {
+        const newArticle = createCards(article);
+        cardsContainer.appendChild(newArticle);
+    });
+  })
+
+
+///bootstrap
+axios
+  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(data => {
+    console.log("OH HAI", data.data.articles);
+    const articlesArray = data.data.articles.javascript ;
+    cardsContainer = document.querySelector(".cards-container");
+    articlesArray.forEach((article) => {
+        const newArticle = createCards(article);
+        cardsContainer.appendChild(newArticle);
+    });
+  })
+
+///javascript
+axios
+  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .then(data => {
+    console.log("OH HAI", data.data.articles);
+    const articlesArray = data.data.articles.javascript ;
+    cardsContainer = document.querySelector(".cards-container");
+    articlesArray.forEach((article) => {
+        const newArticle = createCards(article);
+        cardsContainer.appendChild(newArticle);
+    });
+  })
+
+  ////this worked but I want to understand more
+    // const articleCards = data.data.articles;
+    // for (const something in articleCards) {
+    //   const articles = articleCards[something];
+    //   articles.forEach(articleType => {
+    //     const card = createCards(articleType);
+    //     cardContainer.append(card);
   
   .catch(error => {
     console.log("OH NOES", error);
