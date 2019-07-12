@@ -29,15 +29,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
-
+    The DOM is a language neutral API. It is an object representation of the html elements on a webpage! And it is also  a tree-like structure 
 2. What is an event?
-
+    An event is when somethign that occurs when a user does something specific (i.e. scrolls, pushes certain keys)
 3. What is an event listener?
-
+    An event listener is a function that takes in what the specific event listener is (i.e. "click"), and a callback (i.e. what function you would want to run when "click" is initiated).
 4. Why would we convert a NodeList into an Array?
-
+    If we would want to use an array method other than .forEach since a NL is not really an array. 
 5. What is a component?
-
+    A component is a function that can take in as many parameters and that can be resused in similar contexts. 
 ### Git Set up
 
 * [ ] Fork the project into your GitHub user account
