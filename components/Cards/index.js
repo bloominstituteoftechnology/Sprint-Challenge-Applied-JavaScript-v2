@@ -35,7 +35,18 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     });
   });
 
-// Bootstrap
+
+  axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then (data => {
+    const articleArray = data.data.articles.bootstrap;
+    const cardsContainer = document.querySelector('.cards-container');
+    articleArray.forEach((article) => {
+      const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'bootstrap');
+      cardsContainer.appendChild(newArticle);
+    });
+  });
+
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then (data => {
     const articleArray = data.data.articles.bootstrap;
@@ -47,7 +58,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     });
   });
 
-// Technology
+
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then (data => {
     const articleArray = data.data.articles.technology;
@@ -59,7 +70,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     });
   });
 
-// JQuery
+
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then (data => {
     const articleArray = data.data.articles.jquery;
@@ -71,7 +82,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     });
   });
 
-// Node
+
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then (data => {
     const articleArray = data.data.articles.node;
