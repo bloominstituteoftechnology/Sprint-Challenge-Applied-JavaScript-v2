@@ -21,7 +21,7 @@ const header = document.querySelector('.header-container');
 
 function Header(date, title, temp) {
 
-    //defining DOM objects
+    //defining DOM elements
     let headerDOM = document.createElement('div');
     let dateDOM = document.createElement('span');
     let h1DOM = document.createElement('h1');

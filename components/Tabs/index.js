@@ -12,11 +12,11 @@
 
 
 // promise
-const promise = axios.get('https:lambda-times-backend.herokuapp.com/topics')
+const promiseTabs = axios.get('https:lambda-times-backend.herokuapp.com/topics')
 
 //DOT then to console.log the promise, to make sure I am getting the data
-promise.then(data => {
-    console.log('response', data.data.topics)
+promiseTabs.then(data => {
+    console.log('array of topics', data.data.topics)
     const topics = data.data.topics;
     topics.forEach(topic => {
         const element = Tabs(topic);
@@ -25,7 +25,7 @@ promise.then(data => {
 });
 
 //DOT catch in case there is an error
-promise.catch(error => {
+promiseTabs.catch(error => {
     console.log('YOU BROKE MY HEART', error)
 });
 
