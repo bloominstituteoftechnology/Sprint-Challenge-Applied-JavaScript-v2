@@ -23,15 +23,17 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
   //get: {"topics": ["javascript", "bootstrap", "technology", "jquery", "node.js"]}
   //BUT need to acess data from the array, maybe use variables? need to remove braces or access only the array
   // arrayinfo = info.value; <--- wrong approach (lesson learned...)
-  arrayValues = (info['topics']);
-  console.log(arrayValues);
+
+  arrayValues = (info['topics']); //<--- maybe should be outside? 
+  console.log(arrayValues); // ["javascript", "bootstrap", "technology", "jquery", "node.js"]
   
+
   //to pass array into tabCreator
   arrayValues.forEach(arrIndex => {
     //need to create a div for each topic, but I think that the componenet is already doing that.
-    //for each [i] in the array, I want to ... no I
+    //for each [i] in the array, I want to it to pass through tabCreator
     newTopic = tabCreator(arrIndex);
-    
+    console.log(newTopic); // newTopic is showing this: <div class="tab"></div>
     //append last
     topicsHtml.appendChild(newTopic);
   })
@@ -46,7 +48,11 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
 const tabCreator = (arrayIndexItem) => {
     tabC = document.createElement('div')
     tabC.classList.add('tab');
-    //not sure if need textContent since arrayInfo has content
+
+    //not sure if need textContent since arrayInfo has content. YES! Finally figured out that I needed
+    //to pass the parameter itself as the context as well
+    tabC.textContent = `${arrayIndexItem}`
+
 
     //return
     return tabC;
