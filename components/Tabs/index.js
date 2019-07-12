@@ -12,9 +12,10 @@ const topics = document.querySelector('.topics');
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
   .then (data => {
-    console.log('data', data.data.topics);
+    // console.log('data', data.data);
+    // console.log('topics', data.data.topics);
     const topicsArray = data.data.topics;
-    console.log(topicsArray);
+    // console.log(topicsArray);
     const topics = document.querySelector('.topics');
     topicsArray.forEach((topic) => {
       const newTopic = topicCreator(topic);
