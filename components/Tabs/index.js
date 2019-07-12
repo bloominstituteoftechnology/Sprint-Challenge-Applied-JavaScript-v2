@@ -36,6 +36,9 @@ function topicCreator (topic) {
   topicTab.addEventListener('click', () => {
     topicSelector();
   })
+  topicTab.addEventListener('click', () => {
+    selectArticle();
+  })
 
   function tabBuffer () {
     if (tabData === 'all'){
@@ -52,10 +55,14 @@ function topicCreator (topic) {
     const articles = document.querySelectorAll('.card');
     articles.forEach(article => {article.style.display = 'none'});
     articles.forEach(article => selectArticle());
+    // function selectArticle () {
+    //
+    // }
   }
 
   function selectArticle () {
-
+    // if (tabData === )
+    console.log('selectarticle');
   }
 
   return topicTab;
@@ -65,10 +72,10 @@ const allTopic = document.createElement('div')
 allTopic.classList.add('tab');
 allTopic.textContent = 'all';
 topics.appendChild(allTopic);
-console.log(allTopic);
+// console.log(allTopic);
 allTopic.setAttribute('data-tab', 'all');
 const allTopicData = allTopic.dataset.tab;
-console.log(allTopicData);
+// console.log(allTopicData);
 allTopic.addEventListener('click', () => {
   selectTopic();
 })
