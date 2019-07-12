@@ -23,24 +23,33 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
   //get: {"topics": ["javascript", "bootstrap", "technology", "jquery", "node.js"]}
   //BUT need to acess data from the array, maybe use variables? need to remove braces or access only the array
   // arrayinfo = info.value; <--- wrong approach (lesson learned...)
-  console.log(info['topics']);
+  arrayValues = (info['topics']);
+  console.log(arrayValues);
   
+  //to pass array into tabCreator
+  arrayValues.forEach(arrIndex => {
+    //need to create a div for each topic, but I think that the componenet is already doing that.
+    //for each [i] in the array, I want to ... no I
+    newTopic = tabCreator(arrIndex);
+    
+    //append last
+    topicsHtml.appendChild(newTopic);
+  })
 
-//  const cardInfo = createCards(info)
-//  cardsHtml.appendChild(cardInfo)
 })
 .catch(err => {console.log('Did not work!')})
 
 
 
 //tab component
-
-const tabCreator = (arrayParam) => {
+// not sure if I should pass arr or [i] of array
+const tabCreator = (arrayIndexItem) => {
     tabC = document.createElement('div')
-
     tabC.classList.add('tab');
+    //not sure if need textContent since arrayInfo has content
 
-
+    //return
+    return tabC;
 }
 
 
