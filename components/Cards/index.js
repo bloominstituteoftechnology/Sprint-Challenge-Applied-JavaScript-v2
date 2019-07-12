@@ -8,21 +8,9 @@
 //
 const cards = document.querySelector('.cards-container');
 
- const promise =
-axios.get('https://lambda-times-backend.herokuapp.com/articles');
+ 
 
- promise
-    .then(response =>{
-        console.log('YASS', response.data);        
-
-     })
-
-     .catch(error => {
-        console.log('Nope', error)
-    });
-
-
- function createCards(){
+ function createCards(article){
 
      ////create elements
     const card = document.createElement('div');
@@ -40,12 +28,27 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles');
     by.classList.add('span');
 
      ///set content
-    imgs.src = imgUrl;
+    imgs.src = article.authorPhoto
+    headline.textContent = article.headline
 
      ///put together
-    card.append(headline, author, imgContainer, by);
-    imgContainer.appendChild(imgs)
+    card.append(headline);
+    card.appendChild(imgContainer);
+
+    return card;
  }
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then(response =>{
+        let articles = response.data.articles        
+        for(i in articles){
+            articles[i].forEach(element => {
+                cards.appendChild(createCards(element))
+            });
+        }
+     })
+
+     
 
 // <div class="card">
 //   <div class="headline">{Headline of article}</div>
