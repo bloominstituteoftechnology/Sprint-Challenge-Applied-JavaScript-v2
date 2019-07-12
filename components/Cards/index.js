@@ -30,6 +30,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     const cardsContainer = document.querySelector('.cards-container');
     articleArray.forEach((article) => {
       const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'javascript');
       cardsContainer.appendChild(newArticle);
     });
   });
@@ -41,6 +42,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     const cardsContainer = document.querySelector('.cards-container');
     articleArray.forEach((article) => {
       const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'bootstrap');
       cardsContainer.appendChild(newArticle);
     });
   });
@@ -52,6 +54,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     const cardsContainer = document.querySelector('.cards-container');
     articleArray.forEach((article) => {
       const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'technology');
       cardsContainer.appendChild(newArticle);
     });
   });
@@ -63,6 +66,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     const cardsContainer = document.querySelector('.cards-container');
     articleArray.forEach((article) => {
       const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'jquery');
       cardsContainer.appendChild(newArticle);
     });
   });
@@ -74,6 +78,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     const cardsContainer = document.querySelector('.cards-container');
     articleArray.forEach((article) => {
       const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'node.js');
       cardsContainer.appendChild(newArticle);
     });
   });

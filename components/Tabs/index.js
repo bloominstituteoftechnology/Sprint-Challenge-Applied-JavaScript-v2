@@ -19,6 +19,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
     const topics = document.querySelector('.topics');
     topicsArray.forEach((topic) => {
       const newTopic = topicCreator(topic);
+      newTopic.setAttribute('data-tab', `${topic}`);
       topics.appendChild(newTopic);
     });
   });
@@ -30,3 +31,9 @@ function topicCreator (topic) {
 
   return topicTab;
 }
+
+const allTopics = document.createElement('div')
+allTopics.classList.add('tab');
+allTopics.textContent = 'all';
+topics.appendChild(allTopics);
+allTopics.setAttribute('data-tab', 'all');
