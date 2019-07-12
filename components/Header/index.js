@@ -15,17 +15,17 @@ function Header() {
     const head = document.createElement('h1');
     const temp = document.createElement('span');
 
-    //Create classes
+    //Create classes for each header element with a class
     header.classList.add('header');
     date.classList.add('date');
     temp.classList.add('temp');
 
-    //Create date, header, and temperature reading
+    //Create date, header, and temperature reading content
     date.textContent = "March 28. 2019";
     head.textContent = "Lambda Times";
     temp.textContent = "98°";
 
-    //Append content to page
+    //Create order for elements created at top of function
     header.appendChild(date);
     header.appendChild(head);
     header.appendChild(temp);
@@ -33,5 +33,6 @@ function Header() {
     return header;
 }
 
+//mount the content from this function to the page
 const headerContainer = document.querySelector('.header-container');
 headerContainer.appendChild(Header())

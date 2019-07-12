@@ -9,8 +9,12 @@
 //    <div class="tab">topic here</div>
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
+
+    //create success and failure case for promise with props to Twitter for error message
     .then(data => {
         const topics = data.data.topics;
+
+        //loops over topics array from axios, selects the topics class div, creates a tab for each topic in that div, and inserts the titles supplied by the axios topic list in each tab
         topics.forEach(topic => {
             const topicDiv = document.createElement('div');
             const topicClass = document.querySelector('.topics');
