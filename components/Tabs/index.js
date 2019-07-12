@@ -16,31 +16,43 @@
 // </div>
 
 ///container
-tabs = document.querySelector(".tabs");
+tabs = document.querySelector(".topics");
 
 ///axios
 const promise1 = axios.get("https://lambda-times-backend.herokuapp.com/topics");
 
 promise1
   .then(data => {
-    console.log("Hai", data.data);
-    const topics = data.data.topics;
-    topics.forEach(element => {
-        const tab = createTabs(element);
-        tabs.appendChild(tab);
+    console.log("HAI", data);
+    const topicsForTab = data.data.topics;
+    topicsForTab.forEach(element => {
+      const tab = createTabs(element);
+      tabs.appendChild(tab);
     });
   })
 
   .catch(error => {
-    console.log("No guud", error);
+    console.log("NO GUUD", error);
   });
 
-function createTabs(lambdaTopics){
-    const lambdaTab = document.createElement('div');
-    lambdaTab.classList.add('lambdaTab');
-    lambdaTab.textContent = lambdaTopics;
-    return lambdaTab;
-};
+function createTabs(techTopics) {
+  ///create element
+  const lambdaTab = document.createElement("div");
+
+  ///set style (classname)
+  lambdaTab.classList.add("tab");
+
+  ////set Content
+  lambdaTab.textContent = techTopics;
+
+  ///event listener
+
+  lambdaTab.addEventListener("click", () => {
+    console.log("You clicked a tab");
+  });
+
+  return lambdaTab;
+}
 
 // <!-- TABS COMPONENT, PLACE TABS HERE -->
 // <div class="tabs">
