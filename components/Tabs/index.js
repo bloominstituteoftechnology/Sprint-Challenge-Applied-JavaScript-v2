@@ -15,12 +15,28 @@
 const topicsHtml = document.querySelector('.topics');
 //want to add the tabCreator(arrayParam) to topicsHtml later [...]
 
+axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
+.then(data => {
+  const info = data.data; 
+  console.log(`Here's the info`);
+  console.log(info);
+
+
+//  const cardInfo = createCards(info)
+//  cardsHtml.appendChild(cardInfo)
+})
+.catch(err => {console.log('Did not work!')})
 
 
 
 //tab component
+
 const tabCreator = (arrayParam) => {
+    tabC = document.createElement('div')
+
+    tabC.classList.add('tab');
+
 
 }
 
-//testing... 
+
