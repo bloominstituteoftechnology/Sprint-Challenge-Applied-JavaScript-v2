@@ -14,7 +14,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
 .then(function (response) {
     const topicsClass = document.querySelector('.topics');
     return response.data.topicsClass.map(topic => {
-        return topicsClass
+        return topicsClass.appendChild(Tabs(topic));
     });
 
   
@@ -42,9 +42,6 @@ function Tabs() {
     topic.textContent = 'topic here';
 
     return topic;
-
-
-
 
 }
 

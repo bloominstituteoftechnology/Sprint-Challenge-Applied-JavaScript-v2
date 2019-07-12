@@ -18,40 +18,73 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-function Cards () {
+
+const cardContainer = document.querySelector('.cards-container');
+
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+.then(function (response) {
+    const articles = response.data.articles;
+    const topics = Object.keys(articles);
+
+
+    // map
+    topics.map(topic => {
+        articles[`${topic}`].map(article => {
+            cardContainer.append(Cards(article));
+        });
+    });
+      
+})
+
+
+.catch(function (error){
+  console.log('something went wrong', error);
+});
+
+
+
+
+
+function Cards (data) {
 
     // new elements
 
     const card = document.createElement('div');
     const headline = document.createElement('div');
-    const authorPic = document.createElement('div');
-    const divImg = document.createElement('div');
+    const authorContainer = document.createElement('div');
+    const imgContainer = document.createElement('div');
     const img = document.createElement('img');
-    const authorName = document.createElement('span');
+    const author = document.createElement('span');
 
 
     // structure 
 
-    card.appendChild(headline);
-    card.appendChild(authorPic);
-    card.appendChild(divImg);
-    divImg.appendChild(img);
-    card.appendChild(authorName);
+    card.append(headline);
+    card.append(authorContainer);
+    authorContainer.append(imgContainer);
+    authorContainer.append(author);
+    imgContainer.append(img);
 
 
     // class names
 
     card.classList.add('card');
-    card.classList.add('headline');
-    card.classList.add('author');
-    card.classList.add('img-container');
+    headline.classList.add('headline');
+    author.classList.add('author');
+    imgContainer.classList.add('img-container');
 
 
     // text content
 
-    headline.textContent = '{Headline of article}';
-    authorName.textContent = 'By {authors name}';
+    headline.textContent = data.headline;
+    author.textContent = data.authorName;
+    img.src = data.authorPhoto;
 
+
+    
+
+    
 
 
     return card;
