@@ -16,7 +16,7 @@
 // </div>
 
 ///container
-const tabs = document.querySelector(".tabs");
+tabs = document.querySelector(".tabs");
 
 ///axios
 const promise1 = axios.get("https://lambda-times-backend.herokuapp.com/topics");
@@ -24,10 +24,11 @@ const promise1 = axios.get("https://lambda-times-backend.herokuapp.com/topics");
 promise1
   .then(response => {
     console.log("Hai", response.data);
-    const tabs = document.querySelectorAll('.tabs');
-    // console.log(tabs);
-    // const tab = createTabs(response.data);
-    // tabs.appendChild(tab);
+    const topics = response.data.topics;
+    topics.forEach(element => {
+        const tab = createTabs(element);
+        tabs.appendChild(tab);
+    });
   })
 
   .catch(error => {
@@ -35,24 +36,11 @@ promise1
   });
 
 function createTabs(lambdaTopics){
-
-    ////create elements
-    const tabs = document.createElement('div')
-    const tab = document.createElement('div');
-    const tabTopics = document.createElement('div');
-    const tabTitle = document.createElement('span')
-
-    ///appendChild
-    tabs.appendChild(tab);
-    tab.append(tabTopics, tabTitle);
-
-    ///set styles
-
-
-    ///set content
-
-    return tabs
-}
+    const lambdaTab = document.createElement('div');
+    lambdaTab.classList.add('lambdaTab');
+    lambdaTab.textContent = lambdaTopics;
+    return lambdaTab;
+};
 
 // <!-- TABS COMPONENT, PLACE TABS HERE -->
 // <div class="tabs">
