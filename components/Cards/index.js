@@ -37,7 +37,7 @@
 // Create a card for each of the articles and add the card to the DOM. <----- might be a typo, isn't it "for each article" (i.e. JS, bootstrap, etc.)?? 
 
 
-const cardContHtml = document.querySelector('cards-container');
+const cardContHtml = document.querySelector('.cards-container');
 
 // axios.get('https://lambda-times-backend.herokuapp.com/articles')
 // .then(data => {
@@ -62,7 +62,7 @@ const cardContHtml = document.querySelector('cards-container');
 
 
 //function that creates DOM component [...]
-const cardClassCreator = (article) => {
+cardClassCreator = (article) => {
     //create elements
     const div1Card = document.createElement('div');
     const div2Head = document.createElement('div');
