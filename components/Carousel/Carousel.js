@@ -17,3 +17,81 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const carouselContainer = document.querySelector('.carousel-container');
+console.log(carouselContainer);
+
+function carouselF() {
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel');
+
+  const leftButton = document.createElement('div');
+  leftButton.classList.add('left-button');
+  leftButton.textContent = '<';
+  leftButton.addEventListener('click', () => moveLeft());
+
+  const img1 = document.createElement('img');
+  img1.src = './assets/carousel/mountains.jpeg';
+  img1.style.display = 'block';
+
+  const img2 = document.createElement('img');
+  img2.src = './assets/carousel/computer.jpeg';
+
+  const img3 = document.createElement('img');
+  img3.src = './assets/carousel/trees.jpeg';
+
+  const img4 = document.createElement('img');
+  img4.src = './assets/carousel/turntable.jpeg';
+
+  const imgArray = [
+    img1,
+    img2,
+    img3,
+    img4
+  ]
+  console.log(imgArray);
+
+  i = 0;
+
+  function moveLeft(){
+    if (i === 0) {
+        imgArray[i].style.display = 'none';
+        i = imgArray.length-1;
+        imgArray[i].style.display = 'block';
+    } else {
+        imgArray[i].style.display = 'none';
+        i --;
+        imgArray[i].style.display = 'block';
+    }
+  }
+
+  function moveRight(){
+        if (i === imgArray.length-1) {
+            imgArray[i].style.display = 'none';
+            i = 0;
+            imgArray[i].style.display = 'block';
+        } else {
+            imgArray[i].style.display = 'none';
+            i ++;
+            imgArray[i].style.display = 'block';
+        }
+    }
+
+  const rightButton = document.createElement('div');
+  rightButton.classList.add('right-button');
+  rightButton.textContent = '>';
+  rightButton.addEventListener('click', () => moveRight());
+
+  carousel.appendChild(leftButton);
+  carousel.appendChild(img1);
+  carousel.appendChild(img2);
+  carousel.appendChild(img3);
+  carousel.appendChild(img4);
+  carousel.appendChild(rightButton);
+
+
+  return carousel;
+}
+
+carouselContainer.appendChild(carouselF());
+console.log(carouselContainer);
