@@ -38,6 +38,13 @@ Edit this document to include your answers after each question. Make sure to lea
 
 5. What is a component?
 
+1. Stands for Document Object Model; represents the HTML elements of a website allowing us to change the structure, content, and styling. It is built as a ‘tree’. 
+2. Events dictate the interactions with a page. The browser tracks events to determine what to display. 
+3. There are many events that could occur with a particular element. An event listener can be added to an element so that the element is responsive. 
+4. Changing the list to an array would allow us to iterate the processes to multiple items instead of the NodeList which requires more specificity and can cause redundancy. 
+5. A component improves functionality as it combines HTML, CSS, and JavaScript. 
+
+
 ### Git Set up
 
 * [ ] Fork the project into your GitHub user account
