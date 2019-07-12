@@ -42,7 +42,6 @@ function topicCreator (topic) {
 
   function tabBuffer () {
     if (tabData === 'all'){
-      // cards = document.querySelectorAll('.cards')
       cards = Array.from(document.querySelectorAll('.cards'))
       console.log(`all`);
     }else {
@@ -55,15 +54,14 @@ function topicCreator (topic) {
     const articles = document.querySelectorAll('.card');
     articles.forEach(article => {article.style.display = 'none'});
     articles.forEach(article => selectArticle());
-    // function selectArticle () {
-    //
-    // }
   }
 
   function selectArticle () {
-    // if (tabData === )
-    console.log('selectarticle');
-  }
+    tabs = document.querySelectorAll(`.tab[data-tab='${tabData}']`)
+    cards = document.querySelectorAll(`.card[data-tab='${tabData}']`)
+    if (tabs === cards){
+    articles.forEach(article => {article.style.display = 'flex'});;
+  }}
 
   return topicTab;
 }
