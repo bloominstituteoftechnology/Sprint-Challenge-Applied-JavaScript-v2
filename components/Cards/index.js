@@ -26,7 +26,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
         const jqueryArticles = data.data.articles.jquery;
         const nodeArticles = data.data.articles.node
 
-        const articles = [jsArticles, bootStrapArticles, techArticles, jqueryArticles, nodeArticles]
+        const articles = [javaArticles, bootStrapArticles, techArticles, jqueryArticles, nodeArticles]
 
         articles.forEach(article => {
             article.forEach(art => {
@@ -34,10 +34,10 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
                 cards.appendChild(Article(art));
             })
         })
-        console.log('Success', data);
+        console.log('It works, cards', data);
     })
     .catch(error => {
-        console.log("ERROR", error);
+        console.log("Sorry, something went wrong. A team of highly trained monkeys has been dispatched to deal with this situation", error);
     })
 
 function Article(obj) {
@@ -45,8 +45,28 @@ function Article(obj) {
     const headline = document.createElement('div');
     const author = document.createElement('div');
     const imageContainer = document.createElement('div');
-    const image = document.createElement('img');
+    const img = document.createElement('img');
     const authorName = document.createElement('span');
+
+
+
+    //Create classes
+    card.classList.add('card');
+    headline.classList.add('headline');
+    author.classList.add('author');
+    imageContainer.classList.add('img-container');
+
+    //Add some content
+    headline.textContent = obj.headline;
+    img.src = obj.authorPhoto;
+    authorName.textContent = obj.authorName;
+
+    //Append content to page
+    imageContainer.appendChild(img);
+    author.appendChild(imageContainer);
+    author.appendChild(authorName);
+    card.appendChild(headline);
+    card.appendChild(author);
 
     return card;
 
