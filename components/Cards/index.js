@@ -29,39 +29,39 @@ axios
     const node = data.data.articles.node;
     cardsContainer = document.querySelector(".cards-container");
     node.forEach(article => {
-      const newArticle = createCards(article);
-      cardsContainer.appendChild(newArticle);
+      const card = createCards(article);
+      cardsContainer.appendChild(card);
     });
 
     // jquery
     const jquery = data.data.articles.jquery;
     cardsContainer = document.querySelector(".cards-container");
     jquery.forEach(article => {
-      const newArticle = createCards(article);
-      cardsContainer.appendChild(newArticle);
+      const card = createCards(article);
+      cardsContainer.appendChild(card);
     });
     //technology
     const tech = data.data.articles.technology;
     cardsContainer = document.querySelector(".cards-container");
     tech.forEach(article => {
-      const newArticle = createCards(article);
-      cardsContainer.appendChild(newArticle);
+      const card = createCards(article);
+      cardsContainer.appendChild(card);
     });
 
     ///bootstrap
     const bootstrap = data.data.articles.bootstrap;
     cardsContainer = document.querySelector(".cards-container");
     bootstrap.forEach(article => {
-      const newArticle = createCards(article);
-      cardsContainer.appendChild(newArticle);
+      const card = createCards(article);
+      cardsContainer.appendChild(card);
     });
 
     ///javascript
     const javascript = data.data.articles.javascript;
     cardsContainer = document.querySelector(".cards-container");
     javascript.forEach(article => {
-      const newArticle = createCards(article);
-      cardsContainer.appendChild(newArticle);
+      const card = createCards(article);
+      cardsContainer.appendChild(card);
     });
   })
   .catch(error => {
@@ -101,12 +101,3 @@ function createCards(cards) {
   return cardContainer;
 }
 
-// <div class="card">
-// //   <div class="headline">{Headline of article}</div>
-// //   <div class="author">
-// //     <div class="img-container">
-// //       <img src={url of authors image} />
-// //     </div>
-// //     <span>By {authors name}</span>
-// //   </div>
-// // </div>
