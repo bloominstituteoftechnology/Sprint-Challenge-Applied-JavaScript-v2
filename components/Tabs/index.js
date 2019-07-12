@@ -34,6 +34,10 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
     //for each [i] in the array, I want to it to pass through tabCreator
     newTopic = tabCreator(arrIndex);
     console.log(newTopic); // newTopic is showing this: <div class="tab"></div>
+
+    //adding class '.active-tab' here maybe? not sure if need an event listener...
+    // newTopic.forEach(function () => {}) ----> Going to add event listener in  the tabCreator
+
     //append last
     topicsHtml.appendChild(newTopic);
   })
@@ -53,9 +57,15 @@ const tabCreator = (arrayIndexItem) => {
     //to pass the parameter itself as the context as well
     tabC.textContent = `${arrayIndexItem}`
 
+    //event Listener (maybe need a for each but don't think so since this is already a [i])
+    // tabC.addEventListener("click", () => {
+    //   /*something here*/tabC.classList.add('active-tab');
+    // })
 
     //return
     return tabC;
 }
+
+//don't know where to put the '.active-tab' on? Maybe on the forEach section
 
 
