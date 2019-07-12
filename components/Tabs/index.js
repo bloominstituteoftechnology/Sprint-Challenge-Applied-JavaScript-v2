@@ -7,3 +7,27 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+axios.get('https://lambda-times-backend.herokuapp.com/topics')
+.then (data => {
+  //console.log('data:', data);
+  const tabs = data.data;
+  
+}
+  
+  
+  
+  
+  /*const myInfo = data.data;
+  console.log('UserInfo', myInfo);
+  const cards = document.querySelector('.cards');
+  const cardInfo = cardCreator(myInfo);
+  console.log(cardInfo);
+  cards.appendChild(cardInfo);
+})/*
+
+ <div class="tabs">
+    <div class="topics">
+      <span class="title">TRENDING TOPICS:</span>
+    </div>
+  </div>
