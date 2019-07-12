@@ -78,6 +78,12 @@ function Cards(headline, imgSrc, author){
     const imgDOM = document.createElement('img');
     const authorSpanDOM = document.createElement('span');
 
+    //content
+    headlineDOM.textContent = headline;
+    imgDOM.src = imgSrc;
+    authorDOM.textContent = author; 
+
+
     //structure
     cardDOM.appendChild(headlineDOM);
     cardDOM.appendChild(authorDOM);
@@ -94,10 +100,7 @@ function Cards(headline, imgSrc, author){
     authorDOM.classList.add('author');
     imgContainDOM.classList.add('img-container');
 
-    //content
-    headlineDOM.textContent = headline;
-    imgDOM.src = imgSrc;
-    authorDOM.textContent = author; 
+    
 
     return cardDOM;
 }
