@@ -20,9 +20,8 @@
 
 cardContainer = document.querySelector(".cards-container");
 
-const promise = axios.get(
-  "https://lambda-times-backend.herokuapp.com/articles"
-);
+const promise = axios.get('https://lambda-times-backend.herokuapp.com/articles');
+
 promise
   .then(data => {
     console.log("OH HAI", data);
@@ -35,6 +34,7 @@ promise
       });
     }
   })
+  
   .catch(error => {
     console.log("OH NOES", error);
   });
