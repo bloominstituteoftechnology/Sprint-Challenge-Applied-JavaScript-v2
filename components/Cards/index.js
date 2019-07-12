@@ -25,3 +25,19 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .catch(error => {
     console.log('The Article API is currently down, try again later', error)
 })
+
+function createArticle() {
+    const card = document.createElement('div')
+    const headline = document.createElement('div')
+    const author = document.createElement('div')
+    const imgContainer = document.createElement('div')
+    const img = document.createElement('img')
+    const authorsName = document.createElement('span')
+
+
+    card.classList.add('card')
+    headline.classList.add('headline')
+    author.classList.add('author')
+    imgContainer.classList.add('img-container')
+
+}
