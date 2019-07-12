@@ -22,10 +22,20 @@ const cardsContainer = document.querySelector(".cards-container");
 
 axios.get("https://lambda-times-backend.herokuapp.com/articles").then(res => {
   lambdaContent = res.data.articles;
-  console.log(lambdaContent);
+  const test = "bootstrap";
+  console.log("test me", lambdaContent[test]);
+  const titles = Object.keys(lambdaContent);
+  console.log("hello", titles);
+
+  titles.forEach(title => {
+    lambdaContent[title].forEach(article => {
+      const newArticle = createArticle(article);
+      cardsContainer.appendChild(newArticle);
+    });
+  });
 });
 
-function createArticle(obj) {
+function createArticle(info) {
   // Add Elements
   const card = document.createElement("div");
   const cardHead = document.createElement("div");
@@ -41,9 +51,9 @@ function createArticle(obj) {
   cardImgBox.classList.add("img-container");
 
   // Add Content
-  cardHead.textContent = obj.headline;
-  cardAuthor.textContent = obj.authorPhoto;
-  cardSign.textContent = obj.authorName;
+  cardHead.textContent = info.headline;
+  cardAuthor.textContent = info.authorPhoto;
+  cardSign.textContent = info.authorName;
 
   // Append
   card.appendChild(cardHead);

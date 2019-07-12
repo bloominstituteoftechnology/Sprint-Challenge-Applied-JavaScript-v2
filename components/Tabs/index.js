@@ -24,7 +24,7 @@ axios
     console.log("oh noes...", err);
   });
 
-function tab(obj) {
+function tab(info) {
   // Add element
   const tabTopic = document.createElement("div");
 
@@ -32,7 +32,7 @@ function tab(obj) {
   tabTopic.classList.add("tab");
 
   // Add Content
-  tabTopic.textContent = obj;
+  tabTopic.textContent = info;
 
   return tabTopic;
 }
