@@ -38,3 +38,9 @@
 }
 
 
+// headerContainer
+const headerContainer = document.querySelector(".header-container"); 
+console.log(headerContainer); 
+
+// append header to headerContainer div 
+headerContainer.appendChild(Header()); 
