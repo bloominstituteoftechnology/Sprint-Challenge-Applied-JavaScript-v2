@@ -9,11 +9,11 @@
 //  </div >
 // And add it to the DOM in the .headerContainer component
 
-function Header(headerObj) {
+function headerFunction() {
     const header = document.createElement('div')
-    const date = documemt.createElement('span')
+    const date = document.createElement('span')
     const h1Lambda = document.createElement('h1')
-    const temp = documemt.createElement('span')
+    const temp = document.createElement('span')
 
     header.classList.add('header')
     date.classList.add('date')
@@ -24,5 +24,10 @@ function Header(headerObj) {
     header.appendChild(h1Lambda)
     header.appendChild(temp)
     
-
+    return header
 }
+
+const headerComponent = headerFunction()
+const headerContainer = document.querySelector('.header-container')
+
+headerContainer.parentNode.insertBefore(headerComponent, headerContainer.nextSibling)
