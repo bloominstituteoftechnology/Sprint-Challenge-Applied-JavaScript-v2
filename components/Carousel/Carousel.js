@@ -17,3 +17,35 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function Carousel() {
+
+  const carousel = document.createElement("div");
+  const left-button = document.createElement("div");
+}
+
+/* function Header() {
+
+    //  ELEMENT 
+    const header = document.createElement("div"); 
+    const date = document.createElement("span"); 
+    const headerH1 = document.createElement("h1"); 
+    const temp = document.createElement("span"); 
+
+    // CLASS NAMES
+    header.classList.add("header"); 
+    date.classList.add("date"); 
+    temp.classList.add("temp"); 
+
+    // TEXT CONTENT
+    date.textContent = "March 28, 2019"; 
+    headerH1.textContent = "Lambda Times"; 
+    temp.textContent = "98°"; 
+
+    // PIECEING TOGETHER
+    header.appendChild(date);
+    header.appendChild(headerH1);
+    header.appendChild(temp);
+
+    return header 
+}*/
