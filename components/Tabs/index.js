@@ -21,8 +21,10 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
   console.log(`Here's the info`);
   console.log(info);
   //get: {"topics": ["javascript", "bootstrap", "technology", "jquery", "node.js"]}
-  //BUT need to acess data from the array, maybe use variables?
-  console.log(info.value);
+  //BUT need to acess data from the array, maybe use variables? need to remove braces or access only the array
+  // arrayinfo = info.value; <--- wrong approach (lesson learned...)
+  console.log(info['topics']);
+  
 
 //  const cardInfo = createCards(info)
 //  cardsHtml.appendChild(cardInfo)
