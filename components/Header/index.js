@@ -27,12 +27,12 @@ function Header(date, title, temp) {
     let h1DOM = document.createElement('h1');
     let tempDOM = document.createElement('span');
 
-    //recreating html elements/structure 
+    //recreating html element structure 
     headerDOM.appendChild(dateDOM);
     headerDOM.appendChild(h1DOM);
     headerDOM.appendChild(tempDOM);
 
-    //adding classes
+    //adding styling
     headerDOM.classList.add('header');
     dateDOM.classList.add('date');
     tempDOM.classList.add('temp');
