@@ -18,34 +18,35 @@
   </div>
 */
 
-function Carousel() {
+const carouselContainer = document.querySelector('.carousel-container');
+// console.log(carouselContainer);
 
-  const carousel = document.createElement("div");
-  const left-button = document.createElement("div");
-}
+function carouselC() {
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel');
 
-/* function Header() {
+  const leftButton = document.createElement('div');
+  leftButton.classList.add('left-button');
+  leftButton.textContent = '<';
+  leftButton.addEventListener('click', () => moveLeft());
 
-    //  ELEMENT 
-    const header = document.createElement("div"); 
-    const date = document.createElement("span"); 
-    const headerH1 = document.createElement("h1"); 
-    const temp = document.createElement("span"); 
+  const img1 = document.createElement('img');
+  img1.src = './assets/carousel/mountains.jpeg';
+  img1.style.display = 'block';
 
-    // CLASS NAMES
-    header.classList.add("header"); 
-    date.classList.add("date"); 
-    temp.classList.add("temp"); 
+  const img2 = document.createElement('img');
+  img2.src = './assets/carousel/computer.jpeg';
 
-    // TEXT CONTENT
-    date.textContent = "March 28, 2019"; 
-    headerH1.textContent = "Lambda Times"; 
-    temp.textContent = "98°"; 
+  const img3 = document.createElement('img');
+  img3.src = './assets/carousel/trees.jpeg';
 
-    // PIECEING TOGETHER
-    header.appendChild(date);
-    header.appendChild(headerH1);
-    header.appendChild(temp);
+  const img4 = document.createElement('img');
+  img4.src = './assets/carousel/turntable.jpeg';
 
-    return header 
-}*/
+  const imgArray = [
+    img1,
+    img2,
+    img3,
+    img4
+  ]
+  

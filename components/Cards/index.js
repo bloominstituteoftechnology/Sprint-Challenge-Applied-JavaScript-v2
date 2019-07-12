@@ -19,45 +19,92 @@
 // Create a card for each of the articles and add the card to the DOM.
 
 
-const cardContainer = document.querySelector('.cards-container');
+const cardsContainer = document.querySelector('.cards-container');
+// console.log(cardsContainer);
 
-axios.get("https://lambda-times-backend.herokuapp.com/articles")
-.then(res => {
-    const articles = res.data.articles;
-    const articleTopic = Object.keys(articles);
-
-    articleTopic.map(topic => {
-        articles[`${topic}`].map(article => {
-            cardContainer.append(createCard(articles));
-        });
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then (data => {
+    // console.log('data', data);
+    const articleArray = data.data.articles.javascript;
+    // console.log('JS Articles', JSArray);
+    const cardsContainer = document.querySelector('.cards-container');
+    articleArray.forEach((article) => {
+      const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'javascript');
+      cardsContainer.appendChild(newArticle);
     });
-})
-.catch( err => {
-    console.log("Error has occurred: ", err);
-});
+  });
 
-function createCard(data) {
-    const card = document.createElement("div");
-    const headline = document.createElement("div");
-    const authorContainer = document.createElement("div");
-    const imgContainer = document.createElement("div");
-    const img = document.createElement("img");
-    const author = document.createElement("span");
-  
-    card.classList.add("card");
-  headline.classList.add("headline");
-  authorContainer.classList.add("author");
-  imgContainer.classList.add("img-container");
+// Bootstrap
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then (data => {
+    const articleArray = data.data.articles.bootstrap;
+    const cardsContainer = document.querySelector('.cards-container');
+    articleArray.forEach((article) => {
+      const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'bootstrap');
+      cardsContainer.appendChild(newArticle);
+    });
+  });
 
-  headline.textContent = data.headline;
-  img.src = data.authorPhoto;
-  author.textContent = data.authorName;
+// Technology
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then (data => {
+    const articleArray = data.data.articles.technology;
+    const cardsContainer = document.querySelector('.cards-container');
+    articleArray.forEach((article) => {
+      const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'technology');
+      cardsContainer.appendChild(newArticle);
+    });
+  });
 
-  card.append(headline);
-  card.append(authorContainer);
-  authorContainer.append(imgContainer);
-  authorContainer.append(author);
-  imgContainer.append(img);
+// JQuery
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then (data => {
+    const articleArray = data.data.articles.jquery;
+    const cardsContainer = document.querySelector('.cards-container');
+    articleArray.forEach((article) => {
+      const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'jquery');
+      cardsContainer.appendChild(newArticle);
+    });
+  });
+
+// Node
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then (data => {
+    const articleArray = data.data.articles.node;
+    const cardsContainer = document.querySelector('.cards-container');
+    articleArray.forEach((article) => {
+      const newArticle = articleCreator(article);
+      newArticle.setAttribute('data-card', 'node.js');
+      cardsContainer.appendChild(newArticle);
+    });
+  });
+
+function articleCreator (article) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  const headline = document.createElement('div');
+  headline.classList.add('headline');
+  headline.textContent = article.headline;
+
+  const author = document.createElement('div');
+  author.classList.add('author');
+
+  const img = document.createElement('img');
+  img.classList.add('img-container');
+  img.src = article.authorPhoto;
+
+  const by = document.createElement('span');
+  by.textContent = article.authorName;
+
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(img);
+  author.appendChild(by);
 
   return card;
-} 
+}
