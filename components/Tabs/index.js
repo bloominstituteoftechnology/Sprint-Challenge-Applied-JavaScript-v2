@@ -58,6 +58,7 @@ const tabCreator = (arrayIndexItem) => {
     tabC.textContent = `${arrayIndexItem}`
 
     //event Listener (maybe need a for each but don't think so since this is already a [i])
+    //since it's a stretch, I might add/create another div or figure out how to add the class to every [i]
     // tabC.addEventListener("click", () => {
     //   /*something here*/tabC.classList.add('active-tab');
     // })
