@@ -17,6 +17,9 @@
 //                                                                   this article is each object (however many there are) for each array 
 //                                                                   (i.e. JS, bootstrap, etc...)
 //                                                                   that is under the parent object 'articles' (...right???)]
+
+//is "article" the same as "card"? 
+
 // This won't be as easy as just iterating over an array though.
 // Create a function that will programmatically create the following DOM component:
 //
@@ -30,16 +33,36 @@
 //   </div>
 // </div>
 //
-// Create a card for each of the articles and add the card to the DOM.
+//
+// Create a card for each of the articles and add the card to the DOM. <----- might be a typo, isn't it "for each article" (i.e. JS, bootstrap, etc.)?? 
 
 
 const cardContHtml = document.querySelector('cards-container');
 
+// axios.get('https://lambda-times-backend.herokuapp.com/articles')
+// .then(data => {
+
+//     //need to get access to article's array (there should be 5)
+//     const article = data.data.articles;
+//     console.log(article); // {javascript: Array(4), bootstrap: Array(3), technology: Array(3), jquery: Array(3), node: Array(2)}
+//     //need to iterate array from each "article" using a for loop
+//     for(topics in article) {
+//         article[topics].forEach((item) => {
+//             cardContHtml.appendChild(cardClassCreator(item));
+//         })
+//     }
+
+// })
+
+// .catch(err => {console.log('Cards did not work!')})
 
 
 
-//function that creates DOM component
-const cardClassCreator = (parameterHere) => {
+
+
+
+//function that creates DOM component [...]
+const cardClassCreator = (article) => {
     //create elements
     const div1Card = document.createElement('div');
     const div2Head = document.createElement('div');
@@ -49,26 +72,45 @@ const cardClassCreator = (parameterHere) => {
     const spanC = document.createElement('span');
 
 
-    //create Classes
+    //create Classes [...]
     div1Card.classList.add('card');
     div2Head.classList.add('headline');
     div3Auth.classList.add('author');
     div4Img.classList.add('img-container');
 
-    //add textContent
-    //not sur I have the pieces yet
-    // div2Head.textContent(/* `place relevant article\'s array\'s object (headline) here` */)
-    // imgC.textContent(something here url);
-    // spanC.textContent(/*  `place relevant article\'s array\'s object (authorName) here`  */)
 
-    //append
+    //add textContent [...]
+    //not sur I have the pieces yet
+    div2Head.textContent = article.headline
+    imgC.src = article.authorPhoto
+    spanC.textContent = `By ${article.authorName}`
+
+
+    //appending [...]
     div1Card.appendChild(div2Head);
     div1Card.appendChild(div3Auth);
     div3Auth.appendChild(div4Img);
+    div4Img.appendChild(imgC); 
     div3Auth.appendChild(spanC);
 
     //return
     return div1Card;
 }
 
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+.then(data => {
+
+    //need to get access to article's array (there should be 5)
+    const articles = data.data.articles;
+    console.log(articles); // {javascript: Array(4), bootstrap: Array(3), technology: Array(3), jquery: Array(3), node: Array(2)}
+    //need to iterate array from each "article" using a for loop
+    for(topics in articles) {
+        articles[topics].forEach((item) => {
+            cardContHtml.appendChild(cardClassCreator(item));
+        })
+    }
+
+})
+
+.catch(err => {console.log('Cards did not work!')})
 

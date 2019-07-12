@@ -24,7 +24,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
   //BUT need to acess data from the array, maybe use variables? need to remove braces or access only the array
   // arrayinfo = info.value; <--- wrong approach (lesson learned...)
 
-  arrayValues = (info['topics']); //<--- maybe should be outside? 
+  arrayValues = (info['topics']); //<--- maybe should be outside? NO.
   console.log(arrayValues); // ["javascript", "bootstrap", "technology", "jquery", "node.js"]
   
 
