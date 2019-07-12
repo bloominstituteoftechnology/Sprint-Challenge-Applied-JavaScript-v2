@@ -40,4 +40,17 @@ function createArticle() {
     author.classList.add('author')
     imgContainer.classList.add('img-container')
 
+    headline.textContent = data.articles.headline
+    img.src = data.articles.headline.authorPhoto
+    authorsName.textContent = `'By: ' ${data.articles.headline.authorName}`
+
+    card.appendChild(headline)
+    card.appendChild(author)
+    author.appendChild(imgContainer)
+    imgContainer.appendChild(img)
+    author.appendChild(authorsName)
+
+    return card
+
 }
+
