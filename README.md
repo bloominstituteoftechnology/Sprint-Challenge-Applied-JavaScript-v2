@@ -29,14 +29,15 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
-
+DOM is a data structure with parent and child elements and we can follow the elements to get to the exact elements we want.
 2. What is an event?
-
+Events are actions that happen in the system you are coding, which the system tells you about so you can respond to them 
 3. What is an event listener?
-
+They are JavaScript code that are not added inside the script tags, but rather, inside the html tags, that execute JavaScript when something happens
 4. Why would we convert a NodeList into an Array?
-
+NodeLists are array-like but don't feature many of the methods provided by the Array
 5. What is a component?
+A component is HTML, CSS, or JavaScript brought together for reuse in a website or application
 
 ### Git Set up
 
@@ -51,7 +52,7 @@ Your finished project must include all of the following requirements:
 
 * [ ] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled it. DO NOT add any code to the HTML file itself.
 
-* [ ] Following the instructions in the `Header/index.js` file, create the Header component. 
+* [x] Following the instructions in the `Header/index.js` file, create the Header component. 
 
 * [ ] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
 
