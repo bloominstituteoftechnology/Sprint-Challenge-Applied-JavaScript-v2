@@ -18,15 +18,42 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+const cardContainer = document.querySelector('.cards-container') 
+
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .then(data => {
+    const bootstrap = data.data.articles.bootstrap
+    bootstrap.forEach(item => {
+        const card = createArticle(item)
+        cardContainer.appendChild(card)
+    })
+    const javascript = data.data.articles.javascript
+    javascript.forEach(item => {
+        const card = createArticle(item)
+        cardContainer.appendChild(card)
+    })
+    const jquery = data.data.articles.jquery
+    jquery.forEach(item => {
+        const card = createArticle(item)
+        cardContainer.appendChild(card)
+    })
+    const nodejs = data.data.articles.node
+    nodejs.forEach(item => {
+        const card = createArticle(item)
+        cardContainer.appendChild(card)
+    })
+
+    
+    console.log('5555', bootstrap)
     console.log('it is working', data)
 })
 .catch(error => {
     console.log('The Article API is currently down, try again later', error)
 })
 
-function createArticle() {
+
+
+function createArticle(item) {
     const card = document.createElement('div')
     const headline = document.createElement('div')
     const author = document.createElement('div')
@@ -40,9 +67,9 @@ function createArticle() {
     author.classList.add('author')
     imgContainer.classList.add('img-container')
 
-    headline.textContent = data.articles.headline
-    img.src = data.articles.headline.authorPhoto
-    authorsName.textContent = `'By: ' ${data.articles.headline.authorName}`
+    headline.textContent = item.headline
+    img.src = item.authorPhoto
+    authorsName.textContent = `'By: ' ${item.authorName}`
 
     card.appendChild(headline)
     card.appendChild(author)
