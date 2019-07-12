@@ -12,15 +12,15 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-// const topicsHtml = document.querySelector('.topics');
+const topicsHtml = document.querySelector('.topics');
 //want to add the tabCreator(arrayParam) to topicsHtml later [...]
 
 
 
 
 //tab component
-// const tabCreator = (arrayParam) => {
+const tabCreator = (arrayParam) => {
 
-// }
+}
 
 //testing... 
