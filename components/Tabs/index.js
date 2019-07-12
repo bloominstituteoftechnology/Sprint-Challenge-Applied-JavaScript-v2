@@ -7,3 +7,24 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+entry = document.querySelector(".tabs");
+console.log(entry);
+
+axios
+  .get("https://lambda-times-backend.herokuapp.com/topics")
+  .then(reply => {
+    console.log("working:", reply);
+    const lambda = reply.data;
+    lambda.forEach(topicData => {
+      const element = createTabs(topicData);
+      entry.appendChild(element);
+    });
+  })
+  .catch(err => {
+    console.log("help me help you:", err);
+  });
+
+function createTabs(topicData) {
+  console.log("mic check", topicData);
+  const card = document.createElement(".div");
+}
