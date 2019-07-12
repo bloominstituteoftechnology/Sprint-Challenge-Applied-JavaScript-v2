@@ -28,12 +28,57 @@ function topicCreator (topic) {
   const topicTab = document.createElement('div');
   topicTab.classList.add('tab');
   topicTab.textContent = topic;
+  topicTab.setAttribute('data-tab', `${topic}`);
+  const tabData = topicTab.dataset.tab;
+  topicTab.addEventListener('click', () => {
+    tabBuffer();
+  })
+  topicTab.addEventListener('click', () => {
+    topicSelector();
+  })
+
+  function tabBuffer () {
+    if (tabData === 'all'){
+      // cards = document.querySelectorAll('.cards')
+      cards = Array.from(document.querySelectorAll('.cards'))
+      console.log(`all`);
+    }else {
+      cards = document.querySelectorAll(`.card[data-tab='${tabData}']`)
+      console.log(`${topic}`);
+    }
+  }
+
+  function topicSelector (){
+    const articles = document.querySelectorAll('.card');
+    articles.forEach(article => {article.style.display = 'none'});
+    articles.forEach(article => selectArticle());
+  }
+
+  function selectArticle () {
+
+  }
 
   return topicTab;
 }
 
-const allTopics = document.createElement('div')
-allTopics.classList.add('tab');
-allTopics.textContent = 'all';
-topics.appendChild(allTopics);
-allTopics.setAttribute('data-tab', 'all');
+const allTopic = document.createElement('div')
+allTopic.classList.add('tab');
+allTopic.textContent = 'all';
+topics.appendChild(allTopic);
+console.log(allTopic);
+allTopic.setAttribute('data-tab', 'all');
+const allTopicData = allTopic.dataset.tab;
+console.log(allTopicData);
+allTopic.addEventListener('click', () => {
+  selectTopic();
+})
+function selectTopic () {
+  if (allTopicData === 'all'){
+    const articles = document.querySelectorAll('.card');
+    articles.forEach(article => {article.style.display = 'flex'});
+    console.log('all');
+  }else {
+    console.log('no');
+  }
+
+}

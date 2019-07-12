@@ -19,7 +19,7 @@
 */
 
 const carouselContainer = document.querySelector('.carousel-container');
-console.log(carouselContainer);
+// console.log(carouselContainer);
 
 function carouselF() {
   const carousel = document.createElement('div');
@@ -49,7 +49,7 @@ function carouselF() {
     img3,
     img4
   ]
-  console.log(imgArray);
+  // console.log(imgArray);
 
   i = 0;
 
@@ -94,4 +94,4 @@ function carouselF() {
 }
 
 carouselContainer.appendChild(carouselF());
-console.log(carouselContainer);
+// console.log(carouselContainer);

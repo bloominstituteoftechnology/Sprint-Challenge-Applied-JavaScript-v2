@@ -20,7 +20,7 @@
 
 // JS
 const cardsContainer = document.querySelector('.cards-container');
-console.log(cardsContainer);
+// console.log(cardsContainer);
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then (data => {
