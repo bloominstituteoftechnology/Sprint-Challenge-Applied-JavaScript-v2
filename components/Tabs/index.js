@@ -31,14 +31,23 @@ promise.catch(error => {
 
 function Tabs(get) {
     const tabDOM = document.createElement('div');
-    tabDOM.classList.add('tab');
+    tabDOM.classList.add('topics', 'tab');
     tabDOM.textContent = get;
+
+    
+    tabDOM.addEventListener('click', () => {
+        const tempNodeList = document.querySelectorAll('.tab')
+        tempNodeList.forEach(tab => tab.classList.remove('active-tab'));
+            
+
+        tabDOM.classList.add('active-tab');
+    });
 
     return tabDOM;
 }
 
 
-const tabTopics = document.querySelector('.tabs');
+const tabTopics = document.querySelector('.topics');
 
 
 // manual test
