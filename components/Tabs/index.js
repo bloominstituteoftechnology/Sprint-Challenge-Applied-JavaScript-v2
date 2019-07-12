@@ -8,13 +8,6 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-// <!-- TABS COMPONENT, PLACE TABS HERE -->
-// <div class="tabs">
-//   <div class="topics">
-//     <span class="title">TRENDING TOPICS:</span>
-//   </div>
-// </div>
-
 ///container
 tabs = document.querySelector(".topics");
 
@@ -23,7 +16,6 @@ const promise1 = axios.get("https://lambda-times-backend.herokuapp.com/topics");
 
 promise1
   .then(data => {
-    console.log("HAI", data);
     const topicsForTab = data.data.topics;
     topicsForTab.forEach(element => {
       const tab = createTabs(element);

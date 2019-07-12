@@ -22,87 +22,53 @@ cardContainer = document.querySelector(".cards-container");
 
 ///another way  to make it work that makes more sense
 
-//////node
 axios
-  .get('https://lambda-times-backend.herokuapp.com/articles')
+  .get("https://lambda-times-backend.herokuapp.com/articles")
   .then(data => {
-    console.log("OH HAI", data.data.articles);
-    const articlesArray = data.data.articles.node ;
+    //////node
+    const node = data.data.articles.node;
     cardsContainer = document.querySelector(".cards-container");
-    articlesArray.forEach((article) => {
-        const newArticle = createCards(article);
-        cardsContainer.appendChild(newArticle);
+    node.forEach(article => {
+      const newArticle = createCards(article);
+      cardsContainer.appendChild(newArticle);
+    });
+
+    // jquery
+    const jquery = data.data.articles.jquery;
+    cardsContainer = document.querySelector(".cards-container");
+    jquery.forEach(article => {
+      const newArticle = createCards(article);
+      cardsContainer.appendChild(newArticle);
+    });
+    //technology
+    const tech = data.data.articles.technology;
+    cardsContainer = document.querySelector(".cards-container");
+    tech.forEach(article => {
+      const newArticle = createCards(article);
+      cardsContainer.appendChild(newArticle);
+    });
+
+    ///bootstrap
+    const bootstrap = data.data.articles.bootstrap;
+    cardsContainer = document.querySelector(".cards-container");
+    bootstrap.forEach(article => {
+      const newArticle = createCards(article);
+      cardsContainer.appendChild(newArticle);
+    });
+
+    ///javascript
+    const javascript = data.data.articles.javascript;
+    cardsContainer = document.querySelector(".cards-container");
+    javascript.forEach(article => {
+      const newArticle = createCards(article);
+      cardsContainer.appendChild(newArticle);
     });
   })
-
-
-////jquery
-axios
-  .get('https://lambda-times-backend.herokuapp.com/articles')
-  .then(data => {
-    console.log("OH HAI", data.data.articles);
-    const articlesArray = data.data.articles.jquery ;
-    cardsContainer = document.querySelector(".cards-container");
-    articlesArray.forEach((article) => {
-        const newArticle = createCards(article);
-        cardsContainer.appendChild(newArticle);
-    });
-  })
-
-
-////technology
-axios
-  .get('https://lambda-times-backend.herokuapp.com/articles')
-  .then(data => {
-    console.log("OH HAI", data.data.articles);
-    const articlesArray = data.data.articles.technology ;
-    cardsContainer = document.querySelector(".cards-container");
-    articlesArray.forEach((article) => {
-        const newArticle = createCards(article);
-        cardsContainer.appendChild(newArticle);
-    });
-  })
-
-
-///bootstrap
-axios
-  .get('https://lambda-times-backend.herokuapp.com/articles')
-  .then(data => {
-    console.log("OH HAI", data.data.articles);
-    const articlesArray = data.data.articles.javascript ;
-    cardsContainer = document.querySelector(".cards-container");
-    articlesArray.forEach((article) => {
-        const newArticle = createCards(article);
-        cardsContainer.appendChild(newArticle);
-    });
-  })
-
-///javascript
-axios
-  .get('https://lambda-times-backend.herokuapp.com/articles')
-  .then(data => {
-    console.log("OH HAI", data.data.articles);
-    const articlesArray = data.data.articles.javascript ;
-    cardsContainer = document.querySelector(".cards-container");
-    articlesArray.forEach((article) => {
-        const newArticle = createCards(article);
-        cardsContainer.appendChild(newArticle);
-    });
-  })
-
-  ////this worked but I want to understand more
-    // const articleCards = data.data.articles;
-    // for (const something in articleCards) {
-    //   const articles = articleCards[something];
-    //   articles.forEach(articleType => {
-    //     const card = createCards(articleType);
-    //     cardContainer.append(card);
-  
   .catch(error => {
     console.log("OH NOES", error);
   });
 
-function createCards(articleCards) {
+function createCards(cards) {
   // create the elements
   const cardContainer = document.createElement("div");
   const card = document.createElement("div");
@@ -120,9 +86,9 @@ function createCards(articleCards) {
   imgContainer.classList.add("img-container");
 
   // set the content
-  headline.textContent = articleCards.headline;
-  imgs.src = articleCards.authorPhoto;
-  name.textContent = articleCards.authorName;
+  headline.textContent = cards.headline;
+  imgs.src = cards.authorPhoto;
+  name.textContent = cards.authorName;
 
   ///put together
   cardContainer.appendChild(card);
