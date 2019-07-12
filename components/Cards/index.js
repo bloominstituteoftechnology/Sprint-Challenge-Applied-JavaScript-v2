@@ -15,7 +15,8 @@
 
 // You will be creating a component for each 'article' in the list. [i.e. nothing in the data is named "article" but it is assumed that
 //                                                                   this article is each object (however many there are) for each array 
-//                                                                   that is under the parent object 'articles' (i.e. JS, bootstrap, etc..right???)]
+//                                                                   (i.e. JS, bootstrap, etc...)
+//                                                                   that is under the parent object 'articles' (...right???)]
 // This won't be as easy as just iterating over an array though.
 // Create a function that will programmatically create the following DOM component:
 //
@@ -23,12 +24,51 @@
 //   <div class="headline">{Headline of article}</div>
 //   <div class="author">
 //     <div class="img-container">
-//       <img src={url of authors image} />
+//       <img src={url of authors image} /> || authorPhoto example: "authorPhoto":"./assets/sir.jpg" || what is meant by "url"??
 //     </div>
 //     <span>By {authors name}</span>
 //   </div>
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+
+const cardContHtml = document.querySelector('cards-container');
+
+
+
+
+//function that creates DOM component
+const cardClassCreator = (parameterHere) => {
+    //create elements
+    const div1Card = document.createElement('div');
+    const div2Head = document.createElement('div');
+    const div3Auth = document.createElement('div');
+    const div4Img = document.createElement('div');
+    const imgC = document.createElement('img');
+    const spanC = document.createElement('span');
+
+
+    //create Classes
+    div1Card.classList.add('card');
+    div2Head.classList.add('headline');
+    div3Auth.classList.add('author');
+    div4Img.classList.add('img-container');
+
+    //add textContent
+    //not sur I have the pieces yet
+    // div2Head.textContent(/* `place relevant article\'s array\'s object (headline) here` */)
+    // imgC.textContent(something here url);
+    // spanC.textContent(/*  `place relevant article\'s array\'s object (authorName) here`  */)
+
+    //append
+    div1Card.appendChild(div2Head);
+    div1Card.appendChild(div3Auth);
+    div3Auth.appendChild(div4Img);
+    div3Auth.appendChild(spanC);
+
+    //return
+    return div1Card;
+}
 
 
