@@ -18,54 +18,57 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
-const cards = document.querySelector(".cards-container");
-// cards.appendChild(createCards()) 
 
-const promise = axios.get(
-  "https://lambda-times-backend.herokuapp.com/articles"
-);
+cardContainer = document.querySelector(".cards-container");
 
+const promise = axios.get("https://lambda-times-backend.herokuapp.com/articles")
 promise
-  .then(response => {
-    console.log("GUUD", response.data);
-   const articles = response.data.articles;
-    articles.forEach(lambdaCards => {
-        const cards = createCards(lambdaCards);
-        cards.appendChild(card);
-    })
+  .then(data => {
+    console.log("response", data);
+      const cardsArticle = data.data.articles;
+      for (const something in cardsArticle) {
+        const articles = cardsArticle[something];
+        articles.forEach(articleType => {
+          const card = createCards(articleType);
+          cardContainer.append(card);
+        });
+      };
   })
-
   .catch(error => {
-    console.log("OHNOES", error);
+    console.log("The API is currently down, try again later", error);
   });
 
 function createCards(lambdaCards) {
-  ////create elements
-  const card = document.createElement("div");
-  const headline = document.createElement("div");
-  const author = document.createElement("div");
-  const imgContainer = document.createElement("div");
-  const imgs = document.createElement("img");
-  const authorName = document.createElement("span");
+    // create the elements
+    const card = document.createElement('div');
+    const headline = document.createElement('div');
+    const author = document.createElement('div');
+    const imgContainer = document.createElement('div');
+    const imgs = document.createElement('img');
+    const name = document.createElement('span');
 
-  //set styles
-  card.classList.add("card");
-  headline.classList.add("headline");
-  author.classList.add("author");
-  imgContainer.classList.add("img-container");
+    // set the styles
+    card.classList.add('card');
+    headline.classList.add('headline');
+    author.classList.add('author');
+    imgContainer.classList.add('img-container');
+        
+    // set the content
+    headline.textContent = lambdaCards.headline;
+    imgs.src = lambdaCards.authorPhoto;
+    name.textContent = lambdaCards.authorName;
+    
+   ///put together
+   card.appendChild(headline);
+   card.appendChild(author);
+   author.appendChild(imgContainer);
+   author.appendChild(name)
+   imgContainer.appendChild(imgs);
+        
 
-  ///set content
-  imgs.src = lambdaCards.authorPhoto;
-  headline.textContent = lambdaCards.headline;
-  author.textContent = lambdaCards.author;
-
-  ///put together
-  card.appendChild(headline);
-  card.appendChild(author);
-  author.appendChild(imgContainer);
-  author.appendChild(authorName)
-  imgContainer.appendChild(imgs);
+    return card;
 }
+
 
 // <div class="card">
 // //   <div class="headline">{Headline of article}</div>

@@ -22,9 +22,9 @@ tabs = document.querySelector(".tabs");
 const promise1 = axios.get("https://lambda-times-backend.herokuapp.com/topics");
 
 promise1
-  .then(response => {
-    console.log("Hai", response.data);
-    const topics = response.data.topics;
+  .then(data => {
+    console.log("Hai", data.data);
+    const topics = data.data.topics;
     topics.forEach(element => {
         const tab = createTabs(element);
         tabs.appendChild(tab);
