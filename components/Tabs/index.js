@@ -7,48 +7,43 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
-const tabs = document.querySelector('.tabs');
+const topics = document.querySelector('.topics');
 
 axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
   .then(data => {
+
+    // Test response
     console.log('response', data);
 
     // hold received data
-    const tabData = data.data.topics;
-    const tabs = document.querySelector('tabs');
+    const tabTopic = data.data.topics;
+
+    tabTopic.forEach(element => {
+      let newTab = createTabs(element);
+      topics.appendChild(newTab);
+    })
+
+      .catch(error => {
+        console.log('Error when retrieving data', error)
+      });
+
+    function createTabs(object) {
+
+      // Define elements
+      const tab = document.createElement('div');
+
+      // Setup structure  ->  unnecessary
+
+      // Set class names
+      tab.classList.add('tab');
 
 
-    tabs.forEach(tabData => {
-      axios.get(`https://api.github.com/users/${gitID}`)
-        .then( data => {
-          const tabData = data.data.topics;
-          const tabs = document.querySelector('.tabs');
-          tabs.appendChild(createTab(tabData));
-        })
-    });
-  })
-  .catch(error => {
-    console.log('Error when retrieving data', error)
+      // Set content
+      tab.textContent = object;
+
+      return tab;
+    }
+
   });
 
-function createTabs(object) {
 
-  // Define elements
-  const tab = document.createElement('div');
-  const topics = document.createElement('div');
-  const title = document.createElement('span');
-
-  // Setup structure
-  tab.appendChild(topics);
-  tab.appendChild(title);
-
-  // Set class names
-  tab.classList.add('tab');
-  topics.classList.add('topics');
-  title.classList.add('title');
-
-  // Set content
-  title.textContent = object.topics;
-
-    return tab;
-}
