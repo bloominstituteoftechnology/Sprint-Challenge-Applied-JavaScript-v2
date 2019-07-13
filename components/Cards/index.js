@@ -32,9 +32,7 @@ axios
     categories.forEach(cat => {
       articleData.forEach(article => {
         if (articleData[0][0] == cat) {
-          
-          
-          (makeCards(article));
+          makeCards(article);
         }
       });
     });
@@ -62,9 +60,15 @@ function makeCards(data) {
   author.classList.add("author");
   imgCont.classList.add("img-container");
 
-  headLn.textContent = data[1][0].headline;
-  authImg.src = data[1][0].authorPhoto; 
-  author.textContent = data[1][0].authorName;
-  console.log("index.js -> %cdata:", "color: red", data);
+    data[1].forEach(item => populate(item))
+
+
+  function populate(data) {
+  console.log('index.js -> %cdata:', 'color: indigo', data)
+
+    headLn.textContent = data.headline;
+    authImg.src = data.authorPhoto;
+    author.textContent = data.authorName;
+  }
 }
 //[""0""][1][""0""]
