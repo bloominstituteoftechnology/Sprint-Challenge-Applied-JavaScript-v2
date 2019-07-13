@@ -21,51 +21,64 @@
 
   axios.get('https://lambda-times-backend.herokuapp.com/articles')
         .then(res =>  {
-          console.log(res.data.articles)
-          const cardHome = document.querySelector('.title')
-          const javascript = cardCreator(res.data.articles.javascript)
-          const bootstrap = cardCreator(res.data.articles.bootstrap)
-          const node = cardCreator(res.data.articles.node)
-          const tech = cardCreator(res.data.articles.technology)
-          const jquery = cardCreator(res.data.articles.jquery)
-          cardHome.append(javascript, bootstrap, node, tech, jquery)
+          console.log(res.data)
+          const cardHome = document.querySelector('.cards-container')
+          const javascript = res.data.articles.javascript
+          javascript.forEach(item => {
+            const java = cardCreator(item)
+            cardHome.append(java)
+          })
+          const bootstrap = res.data.articles.bootstrap
+          bootstrap.forEach(item => {
+            const boot = cardCreator(item)
+            cardHome.append(boot)
+          })
+          const jquery = res.data.articles.jquery
+          jquery.forEach(item => {
+            const j = cardCreator(item)
+            cardHome.append(j)
+          })
+          const technology = res.data.articles.technology
+          technology.forEach(item => {
+            const tech = cardCreator(item)
+            cardHome.append(tech)
+          })
+          const node = res.data.articles.node
+          node.forEach(item => {
+            const nodeCard = cardCreator(item)
+            cardHome.append(nodeCard)
+          })
         })
         .catch(err => console.log(err))
 
 
 function cardCreator(article){
+
   const card = document.createElement('div');
   card.classList.add('card');
 
-  article.forEach(item => {
+
     const header = document.createElement('h3')
     header.classList.add('headline')
-    header.textContent = item.headline
+    header.textContent = article.headline
     card.appendChild(header)
-  })
 
-  const author = document.createElement('div');
-  author.classList.add('author');
+    const author = document.createElement('div');
+    author.classList.add('author');
+    card.appendChild(author);
 
-  const imgContainer = document.createElement('div');
-  imgContainer.classList.add('img-container');
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('img-container');
+    author.appendChild(imgContainer);
 
-  article.forEach(item => {
-      const authorImage = document.createElement('img')
-      authorImage.setAttribute('src', item.authorPhoto)
-      imgContainer.appendChild(authorImage)
-  });
+    const authorImage = document.createElement('img')
+    authorImage.setAttribute('src', article.authorPhoto)
+    imgContainer.appendChild(authorImage)
 
-  article.forEach(item => {
     const credit = document.createElement('span');
-    credit.textContent = `By: ${item.authorName}`
+    credit.textContent = `By: ${article.authorName}`
       author.appendChild(credit);
-  });
 
+    return card
 
-  card.appendChild(author);
-  author.appendChild(imgContainer);
-
-
-  return card
 }
