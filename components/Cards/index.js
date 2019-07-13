@@ -48,27 +48,30 @@ function makeCards(data) {
   const author = document.createElement("div");
   const imgCont = document.createElement("div");
   const authImg = document.createElement("img");
-
+  const byLine = document.createElement("span");
+  
   insertCards.appendChild(cards);
   cards.appendChild(headLn);
   cards.appendChild(author);
   author.appendChild(imgCont);
-  author.appendChild(authImg);
+  imgCont.appendChild(authImg);
+  author.appendChild(byLine);
 
   cards.classList.add("card");
   headLn.classList.add("headline");
   author.classList.add("author");
   imgCont.classList.add("img-container");
-
+  authImg.classList.add("img")
+    
     data[1].forEach(item => populate(item))
 
 
   function populate(data) {
-  console.log('index.js -> %cdata:', 'color: indigo', data)
+  //console.log('index.js -> %cdata:', 'color: indigo', data)
 
     headLn.textContent = data.headline;
     authImg.src = data.authorPhoto;
-    author.textContent = data.authorName;
+    //author.textContent = data.authorName;
+    byLine.textContent = `By: ${data.authorName}`;
   }
 }
-//[""0""][1][""0""]
