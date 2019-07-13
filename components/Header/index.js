@@ -29,7 +29,7 @@ headingOne.classList.add('h1');
 temperature.classList.add('temp');
 
 //set text content
-date.textContent = "button";
+date.textContent = "MARCH 28";
 headingOne.textContent = "Lambda Times";
 temperature.textContent = "95%";
 
