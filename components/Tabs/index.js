@@ -25,7 +25,7 @@ axios
   });
 
 function tab(info) {
-  // Add element
+  // Add Elements
   const tabTopic = document.createElement("div");
 
   // Add Classes
