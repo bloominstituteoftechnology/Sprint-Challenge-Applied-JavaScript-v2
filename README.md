@@ -29,15 +29,16 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
-
+The DOM is a representation of the HTML document in the form of a tree.
 2. What is an event?
-
+An event is any interaction that the user has with the web-page.
 3. What is an event listener?
-
+A function that specifies the type of event. It takes a callback that is fired when that
+event happens.
 4. Why would we convert a NodeList into an Array?
-
+When we need to use more advanced array methods like Map or Filter.
 5. What is a component?
-
+A reusable template for DOM objects. 
 ### Git Set up
 
 * [ ] Fork the project into your GitHub user account
@@ -51,7 +52,7 @@ Your finished project must include all of the following requirements:
 
 * [ ] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled it. DO NOT add any code to the HTML file itself.
 
-* [ ] Following the instructions in the `Header/index.js` file, create the Header component. 
+* [ ] Following the instructions in the `Header/index.js` file, create the Header component.
 
 * [ ] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
 
